@@ -2,6 +2,18 @@
 
 **Live site: https://premuthung.github.io/Linear_algebra/**
 
+[![The flow: a sentence becomes word vectors, a dot product mixes them, a matrix transforms the result, and scores become chances for the next word](public/og.png)](https://premuthung.github.io/Linear_algebra/)
+
+One sentence flows through a small language model in five steps:
+
+1. **Words** – the sentence is cut into words.
+2. **Vectors** – each word becomes a list of four numbers (living, place, data, math).
+3. **Dot product** – the last word is compared with every word; the shares say how much each one counts, and the word vectors are mixed into one vector **c**.
+4. **Matrix × vector** – the weight matrix **W** turns **c** into **h = Wc**.
+5. **Scores → chances** – a dot product with every answer word, then softmax. For "the cat sat on the …" the best guess is **mat** (39%).
+
+On the live site every step is clickable and shows its arithmetic with the live numbers.
+
 A web app that teaches linear algebra by doing, not reading. You type numbers, drag arrows on an
 x–y plane, and watch what happens to the coordinates. Each lesson ends with "Where is this in AI?".
 
