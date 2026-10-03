@@ -1,0 +1,9 @@
+node_modules
+dist
+test-results
+playwright-report
+*.local
+
+# Not ours to publish: the copyrighted book and a third-party font file.
+*.pdf
+*.otf

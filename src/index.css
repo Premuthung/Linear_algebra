@@ -1,0 +1,126 @@
+@import 'tailwindcss';
+
+/* Keep these colours in sync with src/theme.ts (the SVG plane uses the same values). */
+@theme {
+  --color-bg: #ffffff;
+  --color-panel: #ffffff;
+  --color-panel2: #f3f5fb;
+  --color-line: #dfe3ee;
+  --color-ink: #1c2033;
+  --color-muted: #5b6480;
+  --color-ihat: #16a34a;
+  --color-jhat: #dc2626;
+  --color-accent: #6d28d9;
+  --color-u: #0284c7;
+  --color-v: #334155;
+  --color-good: #15803d;
+  --color-warn: #c2410c;
+}
+
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  line-height: 1.5;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Draggable arrow tips on the plane. */
+.plane-handle {
+  cursor: grab;
+  touch-action: none;
+  stroke: transparent;
+  stroke-width: 2;
+}
+.plane-handle:hover {
+  stroke: rgba(28, 32, 51, 0.35);
+}
+.plane-handle:active {
+  cursor: grabbing;
+}
+.plane-handle:focus-visible {
+  outline: none;
+  stroke: #1c2033;
+  stroke-dasharray: 4 3;
+}
+
+input[type='range'] {
+  accent-color: var(--color-accent);
+}
+
+.katex {
+  font-size: 1.05em;
+}
+
+/* ---- Explainer on the home page ---- */
+
+/* The soft colour wash behind the page title. */
+.hero-wash {
+  background:
+    radial-gradient(60% 120% at 12% 0%, rgba(96, 165, 250, 0.2), transparent 70%),
+    radial-gradient(55% 120% at 88% 0%, rgba(167, 139, 250, 0.22), transparent 70%),
+    linear-gradient(180deg, #f6f7fe 0%, #ffffff 100%);
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #2563eb, #6d28d9 55%, #db2777);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Small dashes that travel along a ribbon, so the numbers look like they flow. */
+.flow-dash {
+  stroke-dasharray: 3 13;
+  animation: flow-move 1.4s linear infinite;
+}
+@keyframes flow-move {
+  to {
+    stroke-dashoffset: -32;
+  }
+}
+
+/* Each part of the picture slides in when the page opens or the example changes. */
+.flow-in {
+  animation: flow-in 0.6s ease-out both;
+}
+@keyframes flow-in {
+  from {
+    opacity: 0;
+    transform: translateX(-14px);
+  }
+}
+
+.flow-part {
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.flow-part:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .flow-dash,
+  .flow-in {
+    animation: none;
+  }
+}
