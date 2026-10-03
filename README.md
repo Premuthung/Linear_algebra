@@ -1,5 +1,7 @@
 # Interactive Linear Algebra for AI/ML
 
+**Live site: https://premuthung.github.io/Linear_algebra/**
+
 A web app that teaches linear algebra by doing, not reading. You type numbers, drag arrows on an
 x–y plane, and watch what happens to the coordinates. Each lesson ends with "Where is this in AI?".
 
